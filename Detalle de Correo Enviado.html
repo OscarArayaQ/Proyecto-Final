@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="Stylesheet" href="style.css" type="text/css">
+	<title>Detalle de Correo Enviado</title>
+
+</head>
+<!--Este es el cuerpo de la pagina-->
+<body>
+	<header id="header">
+		
+		<div id="usuario">
+			<a id="volver_login" href="Bandeja de Salida.html" title = "Devolverse a bandeja de salida"> <IMG src="imagenes/devolver.png" whidth="50" height="50"> </a>
+			</div>
+		</header>
+		<div class = "contenedor_general">
+			<div class="opciones">
+					<ul>
+						<li><a id="boton_especial" href="Bandeja de Salida.html"> SALIDA </a></li>
+						<li><a id="boton" href="Enviados.html"> ENVIADOS </a></li>						
+					</ul>
+			</div>
+
+			<div class = "minicontenedor">
+
+				<div id= "descripcion">
+					<h2> DETALLE DE  CORREO</h2>					
+				</div>
+
+
+			</div>			
+			<form id = "correo_nuevo" action="creacion nuevo trabajo.html" method="POST">
+				<h3> Para : </h3>				
+				<input type="email" name="email" required placeholder="Oscar Araya"/>
+				<h3> Asunto : </h3>
+				<input type="asunto" name="Trabajo" placeholder="Proyecto de web terminado para ganarme un 100"/>
+				<h3> Contenido : </h3>
+				<textarea readonly= "">Por este medio me complace indicar que se concluyo con este proyecto,siendo la calificacion de un 100</textarea>				
+				<a id = "boton_registro" href="Bandeja de Salida.html"> Salir </a>
+			</form>
+		</div>	
+	</div>
+	
+</body>
+</html>
