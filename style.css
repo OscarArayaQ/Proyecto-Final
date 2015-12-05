@@ -1,8 +1,11 @@
-body {	
-	background-color: #FFFFFF;
-	margin: 0 auto;
+input{
+	margin: 4% 0% 0% 25%;
 }
 
+.nuevo{
+	    padding: 1% 23% 1% 1%;
+    margin: 0%;
+}
 .center {
 	text-align: center;
 	color: black;   
@@ -25,9 +28,9 @@ input[type="text"]{
 
 
 #user, #password{
-	max-width: 67%;
-	margin-top: 8%;
-	margin-bottom: 2%;
+	max-width: 34%;
+	margin-top: 10%;
+	margin-bottom: 0%;
 	text-align: center;
 	margin: 7% 0% 0% 23%;
 	padding: 1% 11% 1% 8%;
@@ -73,7 +76,7 @@ input[type="text"]{
     padding: 5px;
     color: #fff;
     width: 100px;
-    margin: 8% 29% 0% 1%;
+    margin: 8% 15% 0% 1%;
    }
 
 #boton_especial{ 
@@ -197,11 +200,43 @@ a{
 	overflow: hidden;
 }
 .opciones ul{
-	margin-top: 3%
+	margin-top: 3%;
 	padding: 5px 0;
 	text-align: center;
 	border-width: 2px;
 	width: 200px;
 	border-color: #ffffff;
 
+}
+
+@media only screen and (min-width: 375px) and (max-width: 627px) {
+  .city{
+  	width: 58%;
+  }
+
+  input{
+  	margin: 7% 0% 0% 8%;
+  }
+
+  #boton_registroU{
+  	width: 35%;
+    margin: 8% 10% 0% 0%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .city{
+     width: 80%;
+     height: 283px;
+  }
+
+  input{
+    margin: 7% 50% 0% 31%;
+  	    padding: 2%;
+  }
+
+  #boton_registroU{
+    width: 24%;
+    margin: 6% 14% 0% 12%;
+  }
 }

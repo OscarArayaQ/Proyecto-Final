@@ -12,34 +12,32 @@
 	<header id="header">
 		
 		<div id="usuario">
-			<a id="volver_login" href="Bandeja de Salida.html" title = "Devolverse a bandeja de salida"> <IMG src="imagenes/devolver.png" whidth="50" height="50"> </a>
+			<a id="volver_login" href="Enviados.html" title = "Devolverse a bandeja de salida"> <IMG src="imagenes/devolver.png" whidth="50" height="50"> </a>
 			</div>
 		</header>
 		<div class = "contenedor_general">
 			<div class="opciones">
 					<ul>
-						<li><a id="boton_especial" href="Bandeja de Salida.html"> SALIDA </a></li>
-						<li><a id="boton" href="Enviados.html"> ENVIADOS </a></li>						
+						<li><a id="boton" href="Bandeja de Salida.html"> SALIDA </a></li>
+						<li><a id="boton_especial" href="Enviados.html"> ENVIADOS </a></li>						
 					</ul>
 			</div>
 
 			<div class = "minicontenedor">
 
 				<div id= "descripcion">
-					<h2> EDITAR CORREO</h2>					
+					<h2> VER CORREO</h2>					
 				</div>
 
 
 			</div>			
 			<form id = "correo_nuevo" action="creacion nuevo trabajo.html" method="POST">
 				<h3> Para : </h3>				
-				<input id="email" type="email" name="email"/>
+				<textarea readonly id="email" ></textarea>
 				<h3> Asunto : </h3>
-				<input id="asunto" type="asunto" name="Trabajo"/>
+				<textarea readonly id="asunto" ></textarea>
 				<h3> Contenido : </h3>
-				<textarea id="description"></textarea>
-				<input id="boton_registro" type="button" value="Guardar" onclick="editarEmail()">
-				<a id = "boton_registro" href="Bandeja de Salida.html"> Cancelar </a>
+				<textarea readonly id="description"></textarea>
 			</form>
 		</div>	
 	</div>
@@ -47,7 +45,7 @@
 	<script>
 	$(document).ready(function(){
 		validarNewUser();
-		cargarEditSalida();
+		ver();
 	});
 	</script>
 </body>

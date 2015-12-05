@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="Stylesheet" href="style.css" type="text/css">
+	<script type="text/javascript" src="login.js"></script>
 	<title>Registro de usuarios</title>
 
 </head>
@@ -33,12 +34,12 @@
 			</div>
 			<form id = "new_usuario" action="creacion nuevo trabajo.html" method="POST">
 				<h3> Nombre de Usuario o correo electronico </h3>
-				<input type="text" list="invoicess" placeholder="Escriba su nombre de usuario o correo">
+				<input id="Usuario" type="text" list="invoicess" placeholder="Escriba su nombre de usuario o correo">
 				<h3> Contraseña </h3>
-				<input type="password" name="Trabajo" placeholder="Escriba su contraseña"/>
+				<input id="contrasenna" type="password" name="Trabajo" placeholder="Escriba su contraseña"/>
 				<h3> Repetir contraseña </h3>
-				<input type="password" name="fecha" placeholder="Repita su contraseña"/>
-				<a href="Login.html" id="boton_registro">guardar</a>
+				<input id="Rcontrasenna" type="password" name="fecha" placeholder="Repita su contraseña"/>
+				<input id="boton_registro" value="Guardar" type="button" onclick="crear_usuario()">
 				<a id = "boton_registro" href="Login.html"> Cancelar </a>
 			</form>
 		</div>	

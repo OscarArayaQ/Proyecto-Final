@@ -2,17 +2,27 @@
 <html lang="en-us">
 <head>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="style.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+	<script type="text/javascript" src="login.js"></script>
+	<link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
-	<div class="city">
-		<form>
-			<input id="user" type="user" placeholder="Nombre de Usuario">
-			<input id="password" type="password" placeholder="Contraseña">
-			<a id="boton_registroU" href="Bandeja de Salida.html">Ingresar</a>
+<div class="city">
+		<form class="has-feedback .form-control">
+
+			<input id="Usuario" type="user" placeholder="Nombre de Usuario">
+			<input id="contrasenna" type="password" placeholder="Contraseña">	
+			<input id="boton_registroU" type="button" onclick="iniciar_Sesion()" Value="Ingresar">
+			<a id="boton_registroU" type="button" href="registro.html">Registrar</a>
 		</form>
 	</div>
 
+	<div id = "col-md-12"></div>
+	<div class="container">
+	</div>
 </body>
+</html>
