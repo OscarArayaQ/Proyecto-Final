@@ -15,33 +15,31 @@
 			<a id="volver_login" href="Bandeja de Salida.html" title = "Devolverse a bandeja de salida"> <IMG src="imagenes/devolver.png" whidth="50" height="50"> </a>
 		</div>
 	</header>
-	<div class = "contenedor_general">
-		<div class="opciones">
-			<ul>
-				<li><a id="boton_especial" href="Bandeja de Salida.html"> SALIDA </a></li>
-				<li><a id="boton" href="Enviados.html"> ENVIADOS </a></li>						
-			</ul>
-		</div>
-
-		<div class = "minicontenedor">
-
-			<div id= "descripcion">
-				<h2> CORREO NUEVO </h2>					
+		<div class = "contenedor_general">
+			<div class="opciones">
+				<ul>
+					<li><a id="boton_especial" href="Bandeja de Salida.html"> SALIDA </a></li>
+					<li><a id="boton" href="Enviados.html"> ENVIADOS </a></li>						
+				</ul>
 			</div>
 
+			<div class = "minicontenedor">
 
-		</div>			
-		<form id = "correo_nuevo" action="creacion nuevo trabajo.html" method="POST">
-			<h3> Para : </h3>				
-			<input class="nuevo" id="email" type="email" name="email" required placeholder="Escriba la Direccion"/>
-			<h3> Asunto : </h3>
-			<input class="nuevo" id="asunto" type="asunto" name="Trabajo" placeholder="Asunto"/>
-			<h3> Contenido : </h3>
-			<textarea id="description"></textarea>
-			<input id="boton_registro" type="button" value="Guardar" onclick="agregarEmails()">
-			<a id = "boton_registro" href="Bandeja de Salida.html"> Cancelar </a>
-		</form>
-	</div>	
+				<div id= "descripcion">
+					<h2> CORREO NUEVO </h2>					
+				</div>
+			</div>			
+			<form id = "correo_nuevo" method="POST">
+				<h3> Para : </h3>				
+				<input class="nuevo" id="email" type="email" name="email" required placeholder="Escriba la Direccion"/>
+				<h3> Asunto : </h3>
+				<input class="nuevo" id="asunto" type="asunto" placeholder="Asunto"/>
+				<h3> Contenido : </h3>
+				<textarea id="description"></textarea>
+				<input id="boton_registro" type="button" value="Guardar" onclick="agregarEmails()">
+				<a id = "boton_registro" href="Bandeja de Salida.html"> Cancelar </a>
+			</form>
+		</div>	
 </div>
 <script src="vendor/jquery.js"></script>
 <script>

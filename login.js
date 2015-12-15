@@ -15,17 +15,16 @@ var da6;
 //funcion para inicio de sesion
 function iniciar_Sesion()
 {
-	//debugger;
+	
 	var nombre_usuario = document.getElementById("Usuario").value;
 	var contrasenna = document.getElementById("contrasenna").value;
 	validacion();
 	if(validar === null){
-		alert("Debe crearlo primero antes de iniciar sesion");
+		alert("Debe crear un Usuario antes de iniciar sesion");
 	}else if(validar === "Entra como particular"){
 		user_actual = document.getElementById("Usuario").value;
 		localStorage.setItem("Usuario_Actual", user_actual);
-		location.href="Bandeja de Salida.html";
-		alert("BIENVENIDO");
+		location.href="Bandeja de Salida.html";		
 	}
 
 }
@@ -33,13 +32,13 @@ function iniciar_Sesion()
 // funcion que crea un usuario
 function crear_usuario()
 {
-	//debugger;
-	validacion();
-	//debugger;
+	
+	validacion();	
 	if(validar === null){
 		usuario = [];
 		var contrasenna = document.getElementById("contrasenna").value;
 		var contrasenna_repeat = document.getElementById("Rcontrasenna").value;
+
 		if(contrasenna == "" || contrasenna == null){
 			alert("No puede dejar el campo de contraseña vacio");
 		}else if(contrasenna_repeat == "" || contrasenna_repeat == null){
@@ -75,7 +74,7 @@ function crear_usuario()
 // funcion que valida el login
 function validacion()
 {
-	//debugger;
+	
 	var storedNames =JSON.parse(localStorage.getItem("usuarios"));
 	var nombre_usuario = document.getElementById("Usuario").value;
 	var contrasenna = document.getElementById("contrasenna").value;
@@ -124,14 +123,14 @@ function asignarNombre(nombreUsuario){
 }
 
 function validarNewUser(){
-	//debugger;
+	
 	$("#New_usuario").hide();
 	$("#Users").hide();
 	$("#Hi_user").append(localStorage.getItem("Usuario_Actual"));
 	
 }
 
-var chambas = [];
+
 function agregarEmails(){
 	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "salida";
@@ -184,17 +183,17 @@ function agregarEmails(){
 }
 
 function cargarTablaSalida(){
-	//debugger;
+	
 	var hoy = new Date();
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "salida";
-	var listcliente =JSON.parse(localStorage.getItem(usuario_nombre));
+	var lis_usuario =JSON.parse(localStorage.getItem(usuario_nombre));
 	var idEdit;
 	var idDelete;
-	if(listcliente == null){
+	if(lis_usuario == null){
 		
 	}else{
-		for (var i = 0; i < listcliente.length; i++) {
-			for (var j = 0; j <listcliente[i].length; j++) {
+		for (var i = 0; i < lis_usuario.length; i++) {
+			for (var j = 0; j <lis_usuario[i].length; j++) {
 				var table = document.getElementById("tablaSalida");
 				var row = table.insertRow();
 				var emailCell = row.insertCell(0);
@@ -203,14 +202,14 @@ function cargarTablaSalida(){
 				var dilete = row.insertCell(3);
 				var send = row.insertCell(4);
 
-				emailCell.innerHTML = listcliente[i][j+1];
-				asuntoCell.innerHTML  = listcliente[i][j+2];
+				emailCell.innerHTML = lis_usuario[i][j+1];
+				asuntoCell.innerHTML  = lis_usuario[i][j+2];
 				modify.innerHTML = "";
 				dilete.innerHTML = "";
 				send.innerHTML = "";
-				idEdit = listcliente[i][j];
-				idDelete = listcliente[i][j];
-				idSend = listcliente[i][j];
+				idEdit = lis_usuario[i][j];
+				idDelete = lis_usuario[i][j];
+				idSend = lis_usuario[i][j];
 
 				var link = document.createElement("A");
 				link.setAttribute("href", "Editar Correo.html");
@@ -252,17 +251,17 @@ function cargarTablaSalida(){
 }
 
 function cargarTablaEnviado(){
-	//debugger;
+	
 	var hoy = new Date();
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "enviado";
-	var listcliente =JSON.parse(localStorage.getItem(usuario_nombre));
+	var listUsuario =JSON.parse(localStorage.getItem(usuario_nombre));
 	var idVer;
 	var idDelete;
-	if(listcliente == null){
+	if(listUsuario == null){
 		
 	}else{
-		for (var i = 0; i < listcliente.length; i++) {
-			for (var j = 0; j <listcliente[i].length; j++) {
+		for (var i = 0; i < listUsuario.length; i++) {
+			for (var j = 0; j <listUsuario[i].length; j++) {
 				var table = document.getElementById("tablaEnviado");
 				var row = table.insertRow();
 				var emailCell = row.insertCell(0);
@@ -270,12 +269,12 @@ function cargarTablaEnviado(){
 				var obser = row.insertCell(2);
 				var dilete = row.insertCell(3);
 
-				emailCell.innerHTML = listcliente[i][j+1];
-				asuntoCell.innerHTML  = listcliente[i][j+2];
+				emailCell.innerHTML = listUsuario[i][j+1];
+				asuntoCell.innerHTML  = listUsuario[i][j+2];
 				obser.innerHTML = "";
 				dilete.innerHTML = "";
-				idVer = listcliente[i][j];
-				idDelete = listcliente[i][j];
+				idVer = listUsuario[i][j];
+				idDelete = listUsuario[i][j];
 
 				var link = document.createElement("A");
 				link.setAttribute("href", "Ver correo.html");
@@ -305,33 +304,6 @@ function cargarTablaEnviado(){
 	}
 }
 
-function cargarNumeroSalida(){
-	//debugger;
-	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "invoices";
-	var listInvoices =JSON.parse(localStorage.getItem(usuario_nombre));
-	if(listInvoices == null){
-		var numeroInv = 0;
-		document.getElementById("numero").setAttribute("value", numeroInv);
-	}else{
-		var numeroInv = listInvoices.length;
-		document.getElementById("numero").setAttribute("value", numeroInv);
-	}
-	
-}
-
-function cargarNumeroEntrada(){
-	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
-	var listClient =JSON.parse(localStorage.getItem(usuario_nombre));
-	if(listClient == null){
-		var numeroCha = 0;
-		document.getElementById("numero").setAttribute("value", numeroCha);
-	}else{
-		var numeroCha = listClient.length;
-		document.getElementById("numero").setAttribute("value", numeroCha);
-	}
-	
-}
-
 function modif(elemento){
 	var id = elemento.id;
 	modificar = parseInt(id);
@@ -345,16 +317,16 @@ function observ(elemento){
 }
 
 function cargarEditSalida(){
-	//debugger;
+	
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "salida";
-	var listChamba =JSON.parse(localStorage.getItem(usuario_nombre));
+	var listmail =JSON.parse(localStorage.getItem(usuario_nombre));
 	modificar = JSON.parse(localStorage.getItem("id"));
-	for (var i = 0; i < listChamba.length; i++) {
-		for (var j = 0; j < listChamba[i].length; j++) {
-			if(modificar == listChamba[i][j]){
-				da1 =  listChamba[i][j+1];
-				da2 = listChamba[i][j+2];
-				da3 = listChamba[i][j+3];
+	for (var i = 0; i < listmail.length; i++) {
+		for (var j = 0; j < listmail[i].length; j++) {
+			if(modificar == listmail[i][j]){
+				da1 =  listmail[i][j+1];
+				da2 = listmail[i][j+2];
+				da3 = listmail[i][j+3];
 				document.getElementById("email").value =  da1;
 				document.getElementById("asunto").value = da2;
 				document.getElementById("description").value = da3;
@@ -367,16 +339,16 @@ function cargarEditSalida(){
 
 // funcion que carga los datos en cada uno de los input 
 function ver(){
-	//debugger;
+	
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "enviado";
-	var listChamba =JSON.parse(localStorage.getItem(usuario_nombre));
+	var listmail =JSON.parse(localStorage.getItem(usuario_nombre));
 	modificar = JSON.parse(localStorage.getItem("id"));
-	for (var i = 0; i < listChamba.length; i++) {
-		for (var j = 0; j < listChamba[i].length; j++) {
-			if(modificar == listChamba[i][j]){
-				da1 =  listChamba[i][j+1];
-				da2 = listChamba[i][j+2];
-				da3 = listChamba[i][j+3];
+	for (var i = 0; i < listmail.length; i++) {
+		for (var j = 0; j < listmail[i].length; j++) {
+			if(modificar == listmail[i][j]){
+				da1 =  listmail[i][j+1];
+				da2 = listmail[i][j+2];
+				da3 = listmail[i][j+3];
 				document.getElementById("email").value =  da1;
 				document.getElementById("asunto").value = da2;
 				document.getElementById("description").value = da3;
@@ -388,30 +360,30 @@ function ver(){
 }
 
 function editarEmail(){
-	//debugger;
+	
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "salida";
-	var listChamba =JSON.parse(localStorage.getItem(usuario_nombre));
+	var listemail =JSON.parse(localStorage.getItem(usuario_nombre));
 	modificar = JSON.parse(localStorage.getItem("id"));
-	for (var i = 0; i < listChamba.length; i++) {
-		for (var j = 0; j < listChamba[i].length; j++) {
-			if(modificar == listChamba[i][j]){
-				var nn = document.getElementById("email").value;
-				var c = document.getElementById("asunto").value;
+	for (var i = 0; i < listemail.length; i++) {
+		for (var j = 0; j < listemail[i].length; j++) {
+			if(modificar == listemail[i][j]){
+				var de = document.getElementById("email").value;
+				var as = document.getElementById("asunto").value;
 				var d = document.getElementById("description").value;
-				if(nn == "" || nn == null){
+				if(de == "" || de == null){
 					alert("No puede dejar el campo de cliente vacio");
 					break;
-				}else if(c == "" || c == null){
+				}else if(as == "" || as == null){
 					alert("No puede dejar el campo de descripcion vacio");
 					break;
 				}else if(d == "" || d == null){
 					alert("No puede dejar el campo de fecha vacio");
 					break;
 				}else{
-					listChamba[i][j+1] = nn;
-					listChamba[i][j+2] = c;
-					listChamba[i][j+3] = d;
-					localStorage[usuario_nombre] = JSON.stringify(listChamba);
+					listemail[i][j+1] = de;
+					listemail[i][j+2] = as;
+					listemail[i][j+3] = d;
+					localStorage[usuario_nombre] = JSON.stringify(listemail);
 					alert("Se Modificó correctamente");
 					location.href = "Bandeja de Salida.html";
 					break;
@@ -422,14 +394,14 @@ function editarEmail(){
 }
 
 function elim(elemento){
-	//debugger;
+	
 	var id = elemento.id;
 	eliminar = parseInt(id);
 	localStorage.setItem("id",eliminar);
 }
 
 function envi(elemento){
-	//debugger;
+	
 	var id = elemento.id;
 	send = parseInt(id);
 	localStorage.setItem("id",send);
@@ -437,15 +409,15 @@ function envi(elemento){
 }
 
 function EliminarEmail(){
-	//debugger;
+	
 	var acumulador = localStorage.getItem("Usuario_Actual") + "salida";
-	var invoices = JSON.parse(localStorage.getItem(acumulador));
-	for (i=0; i< invoices.length; i++){
-		for (j=0; j< invoices[i].length; j++){
+	var salida = JSON.parse(localStorage.getItem(acumulador));
+	for (i=0; i< salida.length; i++){
+		for (j=0; j< salida[i].length; j++){
 			eliminar = JSON.parse(localStorage.getItem("id"));
-			if(eliminar == invoices[i][j]){
-				invoices.splice(i, 1);
-				localStorage[acumulador] = JSON.stringify(invoices);
+			if(eliminar == salida[i][j]){
+				salida.splice(i, 1);
+				localStorage[acumulador] = JSON.stringify(salida);
 				alert("Se Eliminó correctamente");
 				location.href = "Bandeja de Salida.html";
 			}
@@ -454,15 +426,15 @@ function EliminarEmail(){
 }
 
 function EliminarEmailEnviado(){
-	//debugger;
+	
 	var acumulador = localStorage.getItem("Usuario_Actual") + "enviado";
-	var invoices = JSON.parse(localStorage.getItem(acumulador));
-	for (i=0; i< invoices.length; i++){
-		for (j=0; j< invoices[i].length; j++){
+	var enviado = JSON.parse(localStorage.getItem(acumulador));
+	for (i=0; i< enviado.length; i++){
+		for (j=0; j< enviado[i].length; j++){
 			eliminar = JSON.parse(localStorage.getItem("id"));
-			if(eliminar == invoices[i][j]){
-				invoices.splice(i, 1);
-				localStorage[acumulador] = JSON.stringify(invoices);
+			if(eliminar == enviado[i][j]){
+				enviado.splice(i, 1);
+				localStorage[acumulador] = JSON.stringify(enviado);
 				alert("Se Eliminó correctamente");
 				location.href = "Enviados.html";
 			}
@@ -471,7 +443,7 @@ function EliminarEmailEnviado(){
 }
 
 function enviar(){
-	//debugger;
+	
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "salida";
 	var arreglo = JSON.parse(localStorage.getItem(usuario_nombre));
 	for (var i = 0; i < arreglo.length; i++) {
